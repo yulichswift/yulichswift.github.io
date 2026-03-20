@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeff Yu 履歷</title>
+    <meta name="description" content="Jeff Yu 的個人履歷網站" />
+    <style>
+      :root {
+        --bg: #05070f;
+        --bg-2: #0b1020;
+        --card: #0e162b;
+        --card-2: #111d37;
+        --text: #eaf1ff;
+        --muted: #93a8d1;
+        --line: #21365f;
+        --accent: #00e5ff;
+        --accent-2: #8a5bff;
+        --ok: #16f2a5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 10% 10%, rgba(0, 229, 255, 0.2), transparent 35%),
+          radial-gradient(circle at 90% 0%, rgba(138, 91, 255, 0.18), transparent 30%),
+          linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 100%);
+        line-height: 1.68;
+      }
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.07;
+        background-image: radial-gradient(#ffffff 0.6px, transparent 0.6px);
+        background-size: 3px 3px;
+        z-index: 0;
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 1020px;
+        margin: 28px auto;
+        padding: 24px;
+      }
+
+      .frame {
+        border: 1px solid var(--line);
+        background: linear-gradient(165deg, rgba(17, 29, 55, 0.85) 0%, rgba(14, 22, 43, 0.9) 100%);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow:
+          0 0 0 1px rgba(0, 229, 255, 0.08) inset,
+          0 14px 36px rgba(0, 0, 0, 0.45),
+          0 0 32px rgba(138, 91, 255, 0.14);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #2b4574;
+        border-radius: 14px;
+        padding: 18px;
+        background: linear-gradient(140deg, rgba(13, 22, 42, 0.9), rgba(18, 30, 58, 0.86));
+      }
+
+      .light-bars {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .light-bars span {
+        position: absolute;
+        top: -40%;
+        width: 140px;
+        height: 180%;
+        transform: rotate(18deg);
+        opacity: 0.22;
+        filter: blur(3px);
+        animation: glide 6.8s linear infinite;
+      }
+
+      .light-bars span:nth-child(1) {
+        left: -18%;
+        background: linear-gradient(180deg, transparent, rgba(0, 229, 255, 0.9), transparent);
+      }
+
+      .light-bars span:nth-child(2) {
+        left: 22%;
+        background: linear-gradient(180deg, transparent, rgba(138, 91, 255, 0.9), transparent);
+        animation-delay: -2.2s;
+      }
+
+      .light-bars span:nth-child(3) {
+        left: 62%;
+        background: linear-gradient(180deg, transparent, rgba(22, 242, 165, 0.8), transparent);
+        animation-delay: -4.3s;
+      }
+
+      @keyframes glide {
+        0% {
+          transform: translateX(-40px) translateY(-12%) rotate(18deg);
+        }
+        50% {
+          transform: translateX(32px) translateY(8%) rotate(18deg);
+        }
+        100% {
+          transform: translateX(120px) translateY(20%) rotate(18deg);
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 2.08rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin-top: 26px;
+        font-size: 1.12rem;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 120px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      h3 {
+        font-size: 1rem;
+        color: #c9dcff;
+      }
+
+      .sub {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .contact {
+        margin-top: 12px;
+        color: var(--muted);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .badge-line {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge {
+        border: 1px solid #28517d;
+        background: rgba(0, 229, 255, 0.08);
+        color: #bfefff;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 0.86rem;
+      }
+
+      .summary {
+        margin-top: 12px;
+      }
+
+      .basic-grid {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 10px;
+      }
+
+      .basic-item {
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(8, 17, 35, 0.65);
+      }
+
+      .section-block {
+        margin-top: 10px;
+      }
+
+      .skills-group {
+        margin-top: 12px;
+      }
+
+      .tag-list {
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        border: 1px solid #2b4574;
+        border-radius: 999px;
+        padding: 5px 11px;
+        font-size: 0.9rem;
+        background: linear-gradient(180deg, rgba(14, 27, 53, 0.95), rgba(10, 19, 40, 0.95));
+        color: #d8e6ff;
+      }
+
+      .edu-item,
+      .exp-item {
+        margin-top: 16px;
+      }
+
+      .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .company {
+        font-weight: 700;
+        color: #f4f8ff;
+      }
+
+      .role {
+        color: var(--muted);
+      }
+
+      .date {
+        color: #9fc4ff;
+        white-space: nowrap;
+        font-size: 0.94rem;
+      }
+
+      ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+      }
+
+      li {
+        margin-top: 4px;
+      }
+
+      .exp-item {
+        border-left: 2px solid #2b4574;
+        padding-left: 12px;
+      }
+
+      footer {
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .accent {
+        color: var(--ok);
+      }
+
+      @media (max-width: 700px) {
+        .wrap {
+          margin: 10px;
+          padding: 8px;
+        }
+
+        .frame {
+          padding: 18px;
+        }
+
+        h1 {
+          font-size: 1.62rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <main class="wrap">
+      <div class="frame">
+        <header class="hero">
+          <div class="light-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <h1>Jeff Yu</h1>
+          <p class="sub">後端主管｜資深後端工程師｜跨平台軟體工程師</p>
+          <p class="contact">
+            E-Mail: <a href="mailto:jeffyu925@gmail.com">jeffyu925@gmail.com</a> ｜
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/jeff-yu-3326bb189" target="_blank" rel="noreferrer">jeff-yu-3326bb189</a>
+            ｜
+            GitHub:
+            <a href="https://github.com/yulichswift" target="_blank" rel="noreferrer">yulichswift</a>
+          </p>
+          <div class="badge-line">
+            <span class="badge">13+ Years</span>
+            <span class="badge">Backend Architecture</span>
+            <span class="badge">Android / iOS Develop</span>
+          </div>
+        </header>
+
+        <section>
+          <h2>基本資料</h2>
+          <div class="basic-grid">
+            <div class="basic-item">工作年資：13 年</div>
+            <div class="basic-item">專長：Backend / Android / iOS / Cross-platform</div>
+          </div>
+          <p class="summary">
+            擅長高併發後端系統、即時通訊與直播互動平台，具備跨平台行動開發與系統整合經驗，能從架構設計、技術選型到實作交付完整落地。
+          </p>
+        </section>
+
+        <section>
+          <h2>技能</h2>
+
+          <div class="skills-group">
+            <h3>程式語言</h3>
+            <div class="tag-list">
+              <span class="tag">Go</span>
+              <span class="tag">Python</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">Swift</span>
+              <span class="tag">Dart (Flutter)</span>
+              <span class="tag">Java</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">Objective-C</span>
+              <span class="tag">C#</span>
+              <span class="tag">C++</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>資料庫</h3>
+            <div class="tag-list">
+              <span class="tag">MySQL</span>
+              <span class="tag">TiDB</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Elasticsearch</span>
+              <span class="tag">Redis</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>Cloud Platforms</h3>
+            <div class="tag-list">
+              <span class="tag">Firebase</span>
+              <span class="tag">Facebook SDK</span>
+              <span class="tag">YouTube API</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>工具</h3>
+            <div class="tag-list">
+              <span class="tag">Kafka</span>
+              <span class="tag">Kibana</span>
+              <span class="tag">gRPC</span>
+              <span class="tag">etcd</span>
+              <span class="tag">ZooKeeper</span>
+              <span class="tag">Nacos</span>
+              <span class="tag">Gradle</span>
+              <span class="tag">Fastlane</span>
+              <span class="tag">Swift Package Manager</span>
+              <span class="tag">Carthage</span>
+              <span class="tag">CocoaPods</span>
+              <span class="tag">GitLab</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>Android</h3>
+            <div class="tag-list">
+              <span class="tag">Coroutine</span>
+              <span class="tag">Retrofit</span>
+              <span class="tag">OkHttp</span>
+              <span class="tag">Epoxy</span>
+              <span class="tag">RxKotlin</span>
+              <span class="tag">RxJava</span>
+              <span class="tag">LeakCanary</span>
+              <span class="tag">Koin</span>
+              <span class="tag">Dagger</span>
+              <span class="tag">MPAndroidChart</span>
+              <span class="tag">ffmpeg</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>iOS</h3>
+            <div class="tag-list">
+              <span class="tag">RxSwift</span>
+              <span class="tag">Moya</span>
+              <span class="tag">Siren</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>學歷</h2>
+
+          <div class="edu-item">
+            <div class="title-row">
+              <div>
+                <span class="company">國立台北商業大學</span>
+                <span class="role">｜碩士｜資訊</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <div class="title-row">
+              <div>
+                <span class="company">國立雲林科技大學</span>
+                <span class="role">｜學士｜電子</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>經歷</h2>
+
+          <article class="exp-item">
+            <div class="title-row">
+              <div>
+                <span class="company">雷速網絡</span>
+                <span class="role">｜後端主管，資深後端工程師</span>
+              </div>
+              <span class="date">2023/04 ~ 2026/04</span>
+            </div>
+            <p class="section-block">負責直播與即時互動平台後端架構設計與技術決策。</p>
+            <p class="section-block">技術重點：Golang / MySQL / MongoDB / Kafka / Redis / etcd / ZooKeeper / gRPC / WebSocket</p>
+            <ul>
+              <li>主導直播平台後端架構（直播、聊天室、活動系統）。</li>
+              <li>設計高併發聊天室（WebSocket / IM 系統）。</li>
+              <li>建置錢包與金流系統（多幣別、交易一致性）。</li>
+              <li>串接第三方體育賽事 API。</li>
+              <li>建立風控系統。</li>
+              <li>設計 i18n 多語系前後端架構。</li>
+              <li>開發積分商城。</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="title-row">
+              <div>
+                <span class="company">伊諾科技</span>
+                <span class="role">｜軟體工程師（Android + Backend）</span>
+              </div>
+              <span class="date">2020/07 ~ 2023/04</span>
+            </div>
+            <ul>
+              <li>開發 App 採 MVVM 架構，注入 Koin，多執行序採用 Coroutine，廣播器使用 Channel。</li>
+              <li>導入 Epoxy 提升 RecyclerView 開發效率。</li>
+              <li>建立 WebView 與 Native 雙向通訊機制。</li>
+              <li>整合 Flutter Module 至原生 App。</li>
+              <li>建立 CI/CD（Gradle 自動化）。</li>
+              <li>實作 DecorView 新手教學與 Picture-in-Picture 直播播放。</li>
+              <li>處理代碼混淆、日夜間模式、多語系切換。</li>
+              <li>設計專案多版本架構（Build Variants）。</li>
+              <li>加入 ExoPlayer 線上直播串流播放。</li>
+              <li>導入 GraphQL、Go gRPC、Go WebSocket 聊天室。</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="title-row">
+              <div>
+                <span class="company">思華科技</span>
+                <span class="role">｜軟體工程師</span>
+              </div>
+              <span class="date">2019/07 ~ 2020/07</span>
+            </div>
+            <ul>
+              <li>與 PM 討論需求、與後端制定 API Spec，導入新技術，24 小時 on-call 支援客戶問題。</li>
+              <li>設計自動化控制手機功能，透過 AccessibilityService 操作 App。</li>
+              <li>實作跨 App 遮罩與 Floating Window 指引流程。</li>
+              <li>客製化 Termux，將手機轉為終端機使用情境。</li>
+              <li>開發視頻 App，實現 RecyclerView 模組化與 ExoPlayer 播放。</li>
+              <li>透過 Golang 開發 Mock Server 與 WebSocket，協助團隊開發測試。</li>
+              <li>實作 SOCKS5 Proxy（反向代理）與 Protobuf 節省網路流量。</li>
+              <li>在 WebView 瀏覽場景中加入擋廣告或替換廣告機制。</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="title-row">
+              <div>
+                <span class="company">翱騰國際科技股份有限公司</span>
+                <span class="role">｜軟體工程師</span>
+              </div>
+              <span class="date">2017/07 ~ 2019/07</span>
+            </div>
+            <ul>
+              <li>負責 iOS 與 Android 通訊軟體，透過 SIP 與 WebSocket 實現即時通訊。</li>
+              <li>開發類 Line@ 功能，支援推廣帳號向消費者發送訊息。</li>
+              <li>實作 iOS 與 Android 的 Office/PDF 文件會議同步頁面功能。</li>
+              <li>開發投影到電視功能（AirPlay）。</li>
+              <li>實作 iOS 與 Android 畫中畫互動，讓聊天室與其他功能可同時操作。</li>
+              <li>透過 Fastlane 產生 App 安裝檔。</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="title-row">
+              <div>
+                <span class="company">台灣色彩與影像科技股份有限公司</span>
+                <span class="role">｜軟體工程師</span>
+              </div>
+              <span class="date">2015/06 ~ 2017/07</span>
+            </div>
+            <ul>
+              <li>將 TCIT 人臉辨識模組搭載於 Android 系統，資料上傳雲端分析並回傳前端。</li>
+              <li>開發 Beacon 室內定位相關應用。</li>
+              <li>多次參與 Digital Signage 結合人臉辨識品牌 App 開發。</li>
+              <li>連接 IP Cam 與 Android Box，透過 ffmpeg 取得影像進行人臉辨識。</li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div class="title-row">
+              <div>
+                <span class="company">金緻網路資訊服務股份有限公司</span>
+                <span class="role">｜軟體工程師</span>
+              </div>
+              <span class="date">2012/12 ~ 2015/06</span>
+            </div>
+            <ul>
+              <li>開發同步程式、同步演算法與應用程式（影片播放器、音樂播放器、線上圖片瀏覽編輯工具、使用者設定工具）。</li>
+              <li>應用於 Windows 與 Linux 平台，主要使用 C#、Java，並搭配 C++ 與 Win32 API。</li>
+              <li>後期轉入行動開發部門，擔任 Android 與 iOS App 研發工程師。</li>
+              <li>參與 GCM、APNS 與中華電信 OTT TV 專案整合開發。</li>
+            </ul>
+          </article>
+        </section>
+
+        <footer>最後更新：2026-03-20</footer>
+      </div>
+    </main>
+  </body>
+</html>
